@@ -1,0 +1,45 @@
+<!--
+html模板
+占位符
+    关键词
+    title
+    markdown content
+    iframe url
+    
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <mate name="keywords" content="Test Keywords">
+    <title>Test Title</title>
+    <script src="./js/marked.min.js"></script>
+</head>
+<body>
+    <div class="markdown-body" id="markdown-body"></div>
+    <iframe src="" frameborder="0" id="iframe" style="display: none"></iframe>
+</body>
+<script>
+    var markdown_content = `# 111
+---
+## 222
+test test test
+`
+    var iframe_url = ``
+    if (iframe_url=='' || iframe_url==null || iframe_url==``){
+        var markdown_body = document.getElementById('markdown-body')
+        markdown_body.innerHTML = marked.parse(markdown_content)
+
+        var iframe = document.getElementById('iframe')
+        iframe.style.display = 'none'
+    }else{
+        var markdown_body = document.getElementById('markdown-body')
+        markdown_body.style.display = 'none'
+
+        var iframe = document.getElementById('iframe')
+        iframe.src = iframe_url
+        iframe.style.display = ''
+    }
+</script>
+</html>
